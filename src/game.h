@@ -5,7 +5,7 @@
 #include "SDL.h"
 #include "controller.h"
 #include "renderer.h"
-#include "snake.h"
+#include "pacman.h"
 
 class Game {
  public:
@@ -14,10 +14,12 @@ class Game {
            std::size_t target_frame_duration);
   int GetScore() const;
   int GetSize() const;
+  void Wait(Renderer &renderer);
 
  private:
-  Snake snake;
+  Pacman pacman;
   SDL_Point food;
+  bool _started {false};
 
   std::random_device dev;
   std::mt19937 engine;
