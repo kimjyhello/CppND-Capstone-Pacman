@@ -2,18 +2,21 @@
 
 This is the repo for the Capstone project in the [Udacity C++ Nanodegree Program](https://www.udacity.com/course/c-plus-plus-nanodegree--nd213). This uses the [Snake game](https://github.com/udacity/CppND-Capstone-Snake-Game) codes provided in the Nanodegree course. 
 
-<!--img src="snake_game.gif"/-->
+<img src="images/pacman_screenshot.png"/>
 
-This project incorporates the concepts learned in the program.
-The following are the specifications from the course material that this program touches on (also marked in the codes as comments where applicable):
-* C1: The project reads data from a file and process the data: The project reads from an external file
-* C2: The project accepts user input and processes the input: The project accepts input from a user as part of the necessary operation of the program.
-* C3: The project uses Object Oriented Programming techniques: The project code is organized into classes with class attributes to hold the data, and class methods to perform tasks.
-* C4: Classes use appropriate access specifiers for class members: All class data members are explicitly specified as public, protected, or private.
-* C5: Classes encapsulate behavior: Appropriate data and functions are grouped into classes. Member data that is subject to an invariant is hidden from the user. State is accessed via member functions.
-* C6: Overloaded functions allow the same function to operate on different parameters: One function is overloaded with different signatures for the same function name.
-* C7: The project uses smart pointers instead of raw pointers: The project uses at least one smart pointer.
-* C8: The project makes use of references in function declarations: At least two functions use pass-by-reference in the project code. 
+## How To Play The Game
+This is a watered-down version of the Pacman game, where your goal is to get the coin without getting caught by the ghost.
+
+* Controls: 
+  * You can move the Pacman using the arrow keys on the keyboard.
+* Scoring:
+  * In the first level (level 0) you get 10 points if you get the coin. For each level after that the points you get for getting a coin increases by 10. 
+* Ghost
+  * The ghost starts appearing after the first level, and you will have to try avoiding it.
+* Leveling
+  * With each level the speed of both the Pacman and the ghost increases. 
+* Game Over
+  * The game terminates if you get caught by the ghost. There is no limit on how many levels you can reach. 
 
 
 ## Dependencies for Running Locally
@@ -40,3 +43,24 @@ The following are the specifications from the course material that this program 
 2. Make a build directory in the top level directory: `mkdir build && cd build`
 3. Compile: `cmake .. && make`
 4. Run it: `./Pacman`.
+
+## Concepts from the Program
+This project incorporates the concepts learned in the program.
+The following are the specifications from the course material that this program touches on (also marked in the codes as comments where applicable):
+* C1: The project reads data from a file and process the data: The project reads from an external file (renderer.cpp:192)
+* C2: The project accepts user input and processes the input: The project accepts input from a user as part of the necessary operation of the program. (game.cpp:105)
+* C3: The project uses Object Oriented Programming techniques: The project code is organized into classes with class attributes to hold the data, and class methods to perform tasks. (pacman.cpp, renderer.cpp, game.cpp)
+* C4: Classes use appropriate access specifiers for class members: All class data members are explicitly specified as public, protected, or private. (pacman.cpp, renderer.cpp, game.cpp)
+* C5: Classes encapsulate behavior: Appropriate data and functions are grouped into classes. Member data that is subject to an invariant is hidden from the user. State is accessed via member functions. (pacman.cpp, renderer.cpp, game.cpp)
+* C6: Overloaded functions allow the same function to operate on different parameters: One function is overloaded with different signatures for the same function name. (renderer.h:16)
+* C7: The project uses smart pointers instead of raw pointers: The project uses at least one smart pointer. (renderer.h:49)
+* C8: The project makes use of references in function declarations: At least two functions use pass-by-reference in the project code. (game.h:22)
+
+## Code Structure & Overview
+* src directory contains all of the header and source files
+* images directory contains the images used in the program
+
+<img src="images/structure.png"/>
+
+
+

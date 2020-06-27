@@ -93,7 +93,7 @@ void Game::GameOver(Renderer &renderer) {
 
 
 /*
-  C-2: The accepts input from a user as part of the necessary operation of the program.
+  C2: The accepts input from a user as part of the necessary operation of the program.
 */
 void Game::Wait(Renderer &renderer) {
   SDL_Event e;

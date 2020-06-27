@@ -186,7 +186,7 @@ void Renderer::start()
 void Renderer::loadMedia(const std::size_t size)
 {
   /*
-    C-1: The project reads data from an external file
+    C1: The project reads data from an external file
   */
   int pSize = (int)size;
   if (!sdl_texture->loadFromFile( "../images/pacman.png" ))
