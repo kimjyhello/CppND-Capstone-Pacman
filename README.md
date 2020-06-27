@@ -10,11 +10,11 @@ This is a watered-down version of the Pacman game, where your goal is to get the
 * Controls: 
   * You can move the Pacman using the arrow keys on the keyboard.
 * Scoring:
-  * In the first level (level 0) you get 10 points if you get the coin. For each level after that the points you get for getting a coin increases by 10. 
+  * In the first level (level 0) you get 10 points if you get the coin. For each level after that the points you get for getting a coin increases by 10. The score is displayed in the window title along with the level and the frame per second rate.
 * Ghost
   * The ghost starts appearing after the first level, and you will have to try avoiding it.
 * Leveling
-  * With each level the speed of both the Pacman and the ghost increases. 
+  * With each level the speed of both the Pacman and the ghost increases. Level is displayed in the window title. 
 * Game Over
   * The game terminates if you get caught by the ghost. There is no limit on how many levels you can reach. 
 
@@ -62,5 +62,13 @@ The following are the specifications from the course material that this program 
 
 <img src="images/structure.png"/>
 
+Main initializes the Renderer, the Controller and the Game. The Game class is where the main processing for the game happens, with the while loop running until either the game terminates or the user quits (i.e. by clicking on x). The Renderer uses the information that the Game class processes and displays the current view on the screen. 
 
+In the Game class, several checks are being done using the fuctions from the Pacman class:
+* If the Pacman will go outside of the game area
+* If the Pacman collides with the coin (i.e. the Pacman grabs the coin and scores points)
+* If the Pacman collides with the ghost (i.e. the Pacman is caught and the game terminates)
 
+A new level starts when the Pacman gets the coin, at which point the location of both the coin and the ghost is reset to another random point, and the renderer renders the display accordingly. 
+
+When the Pacman collides with the Ghost, the program ends and displays the Game Over screen. The program waits for user input and exits when the user presses 'q'. 
