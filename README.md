@@ -30,7 +30,8 @@ This is a watered-down version of the Pacman game, where your goal is to get the
   * All installation instructions can be found [here](https://wiki.libsdl.org/Installation)
   * Note that for Linux, an `apt` or `apt-get` installation is preferred to building from source.
 * SDL2_Image
-  * For installation refer to [this page](https://www.libsdl.org/projects/SDL_image/)
+  * For image binaries go to [this page](https://www.libsdl.org/projects/SDL_image/)
+  * For instructions refer to [this page](https://lazyfoo.net/tutorials/SDL/06_extension_libraries_and_loading_other_image_formats/index.php)
   * On Max OS X, Homebrew can be used to install sdl2_image 
 * gcc/g++ >= 5.4
   * Linux: gcc / g++ is installed by default on most Linux distros
