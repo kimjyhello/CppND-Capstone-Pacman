@@ -1,6 +1,6 @@
 # CPPND: Capstone Modified Pacman Game 
 
-This is the repo for the Capstone project in the [Udacity C++ Nanodegree Program](https://www.udacity.com/course/c-plus-plus-nanodegree--nd213). This uses the [Snake game](https://github.com/udacity/CppND-Capstone-Snake-Game) codes provided in the Nanodegree course. 
+This is the repo for the Capstone project in the [Udacity C++ Nanodegree Program](https://www.udacity.com/course/c-plus-plus-nanodegree--nd213). This uses the [Snake game](https://github.com/udacity/CppND-Capstone-Snake-Game) codes provided in the Nanodegree course and the Texture wrapper class from [Lazy Foo](https://lazyfoo.net/tutorials/SDL/).
 
 <img src="images/pacman_screenshot.png"/>
 
