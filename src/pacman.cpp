@@ -3,20 +3,27 @@
 #include <iostream>
 
 void Pacman::Update() {
+  /*
   SDL_Point prev_cell{
       static_cast<int>(head_x),
       static_cast<int>(
           head_y)};  // We first capture the head's cell before updating.
+          */
   UpdateHead();
-  SDL_Point current_cell{
+  /*SDL_Point current_cell{
       static_cast<int>(head_x),
       static_cast<int>(head_y)};  // Capture the head's cell after updating.
-
+*/
   // Update all of the body vector items if the snake head has moved to a new
   // cell.
-  if (current_cell.x != prev_cell.x || current_cell.y != prev_cell.y) {
+ // if (current_cell.x != prev_cell.x || current_cell.y != prev_cell.y) {
     //UpdateBody(current_cell, prev_cell);
-  }
+ // }
+}
+
+int Pacman::GetPacmanSize() 
+{
+  return pacman_size;
 }
 
 void Pacman::SetBorderSize(int i)
@@ -34,6 +41,7 @@ void Pacman::SetScreenHeight(int i)
   screen_height = i;
 }
 
+
 bool Pacman::TouchingBorder(Direction dir)
 {  
   int width= screen_width / grid_width;
@@ -46,13 +54,13 @@ bool Pacman::TouchingBorder(Direction dir)
       }
       break;
     case Direction::kDown:
-      if ((head_y + speed) * height > (screen_height - border_size - 64))
+      if ((head_y + speed) * height > (screen_height - border_size - 32))
       {
         return true;
       }
       break;
     case Direction::kRight:
-      if ((head_x + speed) * width > (screen_width - border_size - 64)) 
+      if ((head_x + speed) * width > (screen_width - border_size - 32)) 
         return true;
       break;
     case Direction::kLeft:
@@ -87,8 +95,8 @@ void Pacman::UpdateHead() {
   }
 
   // Wrap the Snake around to the beginning if going off of the screen.
-  head_x = fmod(head_x + grid_width, grid_width);
-  head_y = fmod(head_y + grid_height, grid_height);
+  //head_x = fmod(head_x + grid_width, grid_width);
+  //head_y = fmod(head_y + grid_height, grid_height);
 }
 /*
 void Pacman::UpdateBody(SDL_Point &current_head_cell, SDL_Point &prev_head_cell) {
@@ -113,15 +121,54 @@ void Pacman::UpdateBody(SDL_Point &current_head_cell, SDL_Point &prev_head_cell)
 
 //void Pacman::GrowBody() { growing = true; }
 
+bool Pacman::TouchPacman(int x, int y, int c_x, int c_y)
+{
+  float c_w = screen_width / grid_width;
+  float c_h = screen_height / grid_height;
+
+  float pLeft, cLeft;
+  float pRight, cRight;
+  float pTop, cTop;
+  float pBottom, cBottom;
+
+  pLeft = x;
+  pRight = x + 1; //pacman_size/c_w;
+  pTop = y;
+  pBottom = y + 1; //pacman_size/c_h;
+
+  cLeft = c_x;
+  cRight = c_x + 1; // + c_w;
+  cTop = c_y;
+  cBottom = c_y + 1; //+ c_h;
+
+  if (pBottom < cTop) 
+    return false;
+  if (pTop > cBottom)
+    return false;
+  if (pRight < cLeft)
+    return false;
+  if (pLeft > cRight)
+    return false;
+
+  return true; 
+}
+
 // Inefficient method to check if cell is occupied by snake.
 bool Pacman::PacmanCell(int x, int y) {
   if (x == static_cast<int>(head_x) && y == static_cast<int>(head_y)) {
     return true;
   }
+
+  /*
   for (auto const &item : body) {
     if (x == item.x && y == item.y) {
       return true;
     }
-  }
+  }*/
   return false;
+}
+
+void Pacman::RandDirection()
+{
+  direction = (Pacman::Direction)(rand() % 4);
 }

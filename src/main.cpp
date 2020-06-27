@@ -10,11 +10,16 @@ int main() {
   constexpr std::size_t kScreenHeight{320};
   constexpr std::size_t kGridWidth{20};
   constexpr std::size_t kGridHeight{10};
+  constexpr std::size_t kBorderSize{32};
+  constexpr std::size_t kPacmanSize{64};
 
-  Renderer renderer(kScreenWidth, kScreenHeight, kGridWidth, kGridHeight);
+  Renderer renderer(kScreenWidth, kScreenHeight, kGridWidth, kGridHeight, kBorderSize);
   Controller controller;
-  Game game(kGridWidth, kGridHeight);
-  renderer.loadMedia();
+  Game game(kGridWidth, kGridHeight, 
+      kBorderSize / (kScreenWidth / kGridWidth), 
+      kBorderSize / (kScreenHeight / kGridHeight), 
+      kPacmanSize);
+  renderer.loadMedia(kPacmanSize);
   game.Wait(renderer);
   game.Run(controller, renderer, kMsPerFrame);
   std::cout << "Game has terminated successfully!\n";

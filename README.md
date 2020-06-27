@@ -12,6 +12,8 @@ The following are the specifications from the course material that this program 
 * C4: Classes use appropriate access specifiers for class members: All class data members are explicitly specified as public, protected, or private.
 * C5: Classes encapsulate behavior: Appropriate data and functions are grouped into classes. Member data that is subject to an invariant is hidden from the user. State is accessed via member functions.
 * C6: Overloaded functions allow the same function to operate on different parameters: One function is overloaded with different signatures for the same function name.
+* C7: The project uses smart pointers instead of raw pointers: The project uses at least one smart pointer.
+* C8: The project makes use of references in function declarations: At least two functions use pass-by-reference in the project code. 
 
 
 ## Dependencies for Running Locally

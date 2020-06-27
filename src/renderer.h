@@ -29,12 +29,13 @@ struct delete_sdl
 class Renderer {
  public:
   Renderer(const std::size_t screen_width, const std::size_t screen_height,
-           const std::size_t grid_width, const std::size_t grid_height);
+           const std::size_t grid_width, const std::size_t grid_height,
+           const std::size_t border_size);
   ~Renderer();
 
-  void Render(Pacman const pacman, SDL_Point const &food);
-  void UpdateWindowTitle(int score, int fps);
-  void loadMedia();
+  void Render(Pacman const pacman, SDL_Point const &coin, Pacman& ghost);
+  void UpdateWindowTitle(int score, int fps, int level);
+  void loadMedia(const std::size_t size);
   void start();
 
   const std::size_t GetScreenWidth();
@@ -43,12 +44,14 @@ class Renderer {
 
  private:
  /* 
-   The project uses at least one smart pointer. 
+   C7: The project uses at least one smart pointer. 
  */
   std::unique_ptr<SDL_Window, delete_sdl> sdl_window;
   std::shared_ptr<SDL_Renderer> sdl_renderer;
   WTexture *sdl_texture;
+  WTexture *ghost_texture;
   SDL_Rect pacmanMoves[PACMAN_ANIMATION_FRAMES * PACMAN_DIRECTIONS];
+  SDL_Rect ghostMoves[PACMAN_DIRECTIONS];
 
   WTexture *_message_texture;
 
@@ -60,6 +63,7 @@ class Renderer {
   const std::size_t border_width;
 
   int frame{0};
+  int ghost_frame{0};
 
   bool _started {false};
 };
